@@ -10,8 +10,10 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # We need to pass mock env vars during the build step for Next.js to compile
-ENV NEXT_PUBLIC_SUPABASE_URL=mock_url
-ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=mock_key
+# They must be formatted as valid URLs to pass the Supabase client checks!
+ENV NEXT_PUBLIC_SUPABASE_URL="https://mock.supabase.co"
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY="mock_anon_key"
+ENV SUPABASE_SERVICE_ROLE_KEY="mock_service_key"
 RUN npm run build
 
 # Stage 3: Production Server
