@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { env } from '@/utils/env'; // Adjust this path based on your folder structure
 
 // 1. Initialize the Secure Admin Connection
-// We use the service_role key here to bypass RLS and forcefully insert the data.
-// Because this file runs on the server, this key is completely safe from hackers.
+// We now pull from the Zod-validated env object instead of process.env
 const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
+  env.NEXT_PUBLIC_SUPABASE_URL,
+  env.SUPABASE_SERVICE_ROLE_KEY
 );
 
 export async function POST(req: Request) {

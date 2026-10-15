@@ -1,10 +1,9 @@
-// Remove the 'import type { NextConfig }' line at the top
+// This line is the security tripwire. It forces Zod to run immediately.
+import "./src/utils/env"; 
 
 const nextConfig = {
   output: "standalone",
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // Notice we deleted the 'eslint' block to fix that yellow warning!
   typescript: {
     ignoreBuildErrors: true,
   },
