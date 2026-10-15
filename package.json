@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.3",
+    "@tailwindcss/postcss": "^4.3.3",
     "@upstash/redis": "^1.39.0",
     "next": "16.4.1",
+    "postcss": "^8.5.30",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
