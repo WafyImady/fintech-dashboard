@@ -31,6 +31,11 @@ jobs:
       # Step 4: Run your Jest Unit & Component Tests
       - name: Run Jest Tests
         run: npm run test
+        env:
+          # Fake keys to pass Zod validation during CI tests
+          NEXT_PUBLIC_SUPABASE_URL: "https://mock.supabase.co"
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: "mock-anon-key-that-is-at-least-20-chars"
+          SUPABASE_SERVICE_ROLE_KEY: "mock-service-key-that-is-at-least-20-chars"
 
       # Step 5: Run End-to-End Tests with Cypress
       # This official action automatically builds Next.js, starts the server,
