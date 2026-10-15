@@ -9,11 +9,17 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# We need to pass mock env vars during the build step for Next.js to compile
-# They must be formatted as valid URLs to pass the Supabase client checks!
-ENV NEXT_PUBLIC_SUPABASE_URL="https://mock.supabase.co"
-ENV NEXT_PUBLIC_SUPABASE_ANON_KEY="mock_anon_key"
-ENV SUPABASE_SERVICE_ROLE_KEY="mock_service_key"
+
+# 1. Pull the real variables from the Render Dashboard
+ARG NEXT_PUBLIC_SUPABASE_URL
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
+ARG SUPABASE_SERVICE_ROLE_KEY
+
+# 2. Set them as environment variables so Next.js can bake them into the frontend
+ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY
+ENV SUPABASE_SERVICE_ROLE_KEY=$SUPABASE_SERVICE_ROLE_KEY
+
 RUN npm run build
 
 # Stage 3: Production Server
