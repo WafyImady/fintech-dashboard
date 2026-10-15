@@ -2,17 +2,12 @@
 
 A production-ready point-of-sale (POS) dashboard built for high-reliability financial transactions. Engineered with a decoupled architecture, strict server-side validation, and a fully automated CI/CD pipeline.
 
-Next.js
-
-TypeScript
-
-Tailwind CSS
-
-Supabase
-
-Docker
-
-GitHub Actions
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/CI/CD-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 
 ## 🚀 System Architecture
 
